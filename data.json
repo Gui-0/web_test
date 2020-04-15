@@ -1,13 +1,13 @@
 [
 	{
-		quiz : "woshidsadsadad",
-		options:["aaaaa","bbbb","cccc","dddd"],
-		answer:"1"
+		"quiz" : "woshidsadsadad",
+		"options":["aaaaa","bbbb","cccc","dddd"],
+		"answer":"1"
 	},
 	{
-		quiz : "1111111",
-		option:["aaaaa","bbbb","cccc","dddd"],
-		answer:"2"
+		"quiz ": "1111111",
+		"option":["aaaaa","bbbb","cccc","dddd"],
+		"answer":"2"
 	}
 
 ]
