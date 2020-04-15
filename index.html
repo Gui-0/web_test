@@ -5,40 +5,56 @@
 		<title></title>
 		<meta name="viewport" content="width=375,user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="css.css"/>
+
 	</head>
 	<body>
 		<!--开始页面-->
-		<div class="page startGame active center-block">
+		<div class="page startGame active center-block ">
+			<h1>欢迎来到</h1>
+			<br>
+			<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2952755571,4214983189&fm=15&gp=0.jpg" alt="图裂了">
+			<br>
 			<button class="startBtn">开始答题</button>
 		</div>
 		
 		<!--答题页面-->
-		<div class="page gaming center-block">
+		<div class="page gaming center-block ">
 			<!--题目-->
 			<h1 class="timu"></h1>
 			<!--选项-->
 			<div class="options"></div>
-			
+
+			<div class="detail"></div>
 		</div>
 		
 		<!--结束页面-->
-		<div class="page endGame center-block">
-			<h1>恭喜您获取：<span class="score">100</span>分</h1>
+		<div class="page endGame center-block ">
+			<h1>恭喜答对：<span class="score">100</span>道题</h1>
 			<button class="reStart">重新答题</button>
 		</div>
 		
 		<script src="jquery-1.11.0.js"></script>
-		<script src="lnl.js"></script>
-<!-- 		<script>
-			var tikuList = [{quiz: "dasda",options:["a","b","c","d"],answer:"1"},
-							{quiz: "qqqq",options:["a","b","c","d"],answer:"2"},
-							{quiz: "bbbb",options:["a","b","c","d"],answer:"1"}];
-			var currenTimu = {};
+		<script>
+			var tikuList = [
+					{quiz: "鲁迅艺术学院是中国共产党于1938年在延安创办的一所培养文学艺术干部和文艺工作者的综合性艺术院校，（ ）出席成立大会并题写了校名和校训。1940年改称鲁迅艺术文学院，简称“鲁艺”。出题:中央戏剧学院",options:["周恩来","毛泽东","张闻天","徐特立"],answer:"2",detail:""},
+					{quiz: "1848年，马克思和恩格斯共同创办的被列宁称为“革命无产阶级最好的机关报”是【 】。",options:["《莱茵报》","《火星报》","《新闻报》","《新莱茵报》"],answer:"4",detail:""},
+					{quiz: "政府投资开发的公益性岗位，应当优先安排符合岗位要求的就业困难人员。被安排在公益性岗位工作的，按照国家规定给予【 】",options:["职业年金","劳动薪酬","岗位补贴","岗位补助"],answer:"3",detail:""},
+					{quiz: "六访兰考、八下扶沟、四赴宁陵、八下辉县、两上红旗渠，与新华社同事共同采写了《县委书记的榜样--焦裕禄》等新闻名篇的记者是【 】",options:["范长江","范敬宜","邹韬奋","穆青"],answer:"4",detail:""},
+				    {quiz: "“淝水之战”的“淝水”是____的支流",options:["长江","黄河","淮水","济水"],answer:"3",detail:""},
+				    {quiz: "清代著名的林则徐“虎门销烟”发生在____省",options:["广东","广西","福建","浙江"],answer:"1",detail:""},
+				    {quiz: "我国第一艘航母是用____省的名称命名的。",options:["浙江","山东","吉林","辽宁"],answer:"4",detail:" "},
+				    {quiz: "地处河西走廊西部的河西咽喉隘口，并有天下第一雄关之称的是____。",options:["A、山海关","B、潼关","C、嘉峪关","D、友谊关"],answer:"c",detail:""},
+				    {quiz: "2018年8月21日至22日，习近平总书记在全国宣传思想工作会议上指出，要扎实抓好县级融媒体中心建设，更好____",options:["A、讲好中国故事、传播好中国声音","B、创新宣传理念、创新运行机制","C、唱响主旋律、壮大正能量","D、引导群众、服务群众"],answer:"4",detail:""},   
+				    {quiz: "主持修建我国首条铁路——京张铁路的工程师是____。",options:["康有为","王梦恕","詹天佑","梁思成"],answer:"3",detail:" "},
+				    {quiz: "为纪念辛亥革命一百年，我国邮政部门发行了邮票和小型张，小型张上革命先驱孙中山先生题写的建国方略是“____”。",options:["天下为公","自由博爱","一心为公","民主自由"],answer:"1",detail:""},
+				    {quiz: "bbbb",options:["a","b","c","d"],answer:"1",detail:"dq"}
+				       ];
+			var currentTimu = {};
 			var score = 0;
 			//是否还能继续选择
 			var isChoose = false;
 			//设置答题数量
-			var num = 3;
+			var num = 10;
 			//点击开始答题按钮切换页面
 			$(".startBtn").click(function(e){
 				$(".gaming").addClass("active")
@@ -55,13 +71,14 @@
 				currentTimu = tikuList.splice(randomIndex,1)[0];
 				console.log(currentTimu);
 				//获取页面标签题目，并把对象字符串中的quiz（题目）设置显示在页面上
-				$(".timu").html(currentTimu.quiz)
+				$(".timu").html(currentTimu.quiz);
 				//每次执行清空一次
 				$(".options").html("");
 				//遍历题目对象字符串中的选择options内容           	   内容        索引
 				currentTimu.options.forEach(function(item,index){
-					$(".options").append(`<div data-index="${index}">${index+1}.${item}</div>`)
-				})
+					$(".options").append(`<div data-index="${index}">${item}</div>`)
+				});
+
 				
 					
 			}
@@ -75,7 +92,7 @@
 					//题目中的index是0开始,answer是1开始,所以要加一
 					//若答案与点击按钮的索引一致
 					if(currentTimu.answer==(index+1)){
-						score += 10;
+						score += 1;
 						//把获取的索引添加正确的背景颜色
 						$("[data-index="+index+"]").addClass("correct")
 					}else{
@@ -88,10 +105,13 @@
 					isChoose = true;
 					
 					//每点击一次,答题的数量减1
-					num --;
+					num--;
 					
-					
-					//延迟一秒进行切换
+					setTimeout(function(){
+						$(".detail").html(currentTimu.detail+'3秒后进入下一题');
+					})
+
+
 					setTimeout(function(){
 						//答题数量结束了,切换到结束页面,否则切换到下一题
 						if(num==0){
@@ -102,7 +122,8 @@
 							isChoose = false;
 							randomRender();
 						}
-					},1000)
+						$(".detail").html("");
+					},3000)
 				}
 				
 			})
@@ -112,6 +133,6 @@
 				//location.reload()	DOM方法	刷新页面
 				location.reload()
 			})				
-		</script> -->
+		</script>
 	</body>
 </html>
